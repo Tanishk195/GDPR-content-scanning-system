@@ -1,16 +1,41 @@
 import axios from "axios";
 
-const API = axios.create({
+const api = axios.create({
   baseURL: "http://localhost:4000",
 });
 
 export const scanTextAPI = (text) =>
-  API.post("/scan-text", { text });
+  api.post("/scan-text", { text });
 
 export const scanFileAPI = (formData) =>
-  API.post("/scan-file", formData, {
+  api.post("/scan-file", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 
 export const fetchScanHistoryAPI = () =>
-  API.get("/api/scans");
+  api.get("/api/scans");
+
+/* ---------- RULE MANAGEMENT ---------- */
+
+export const getRulesAPI = () => {
+  return api.get("/api/rules");
+};
+
+export const searchRulesAPI = (query) => {
+  return api.get(`/api/rules/search?query=${query}`);
+};
+
+
+export const addRuleAPI = (data) => {
+  return api.post("/api/rules", data);
+};
+
+
+export const toggleRuleAPI = (id) => {
+  return api.patch(`/api/rules/${id}/toggle`);
+};
+
+
+export const deleteRuleAPI = (id) => {
+  return api.delete(`/api/rules/${id}`);
+};
