@@ -75,7 +75,7 @@ exports.scanText = async (req, res) => {
     const { text } = req.body;
 
     const response = await axios.post(
-      "http://localhost:8001/scan-text",
+      "http://localhost:8000/scan-text",
       { text }
     );
 

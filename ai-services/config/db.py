@@ -9,7 +9,7 @@ def get_db_connection():
         database="gdpr_db",
         user="pranitkolhe",
         password="",
-        port="5432"
+
     )
 
     return conn

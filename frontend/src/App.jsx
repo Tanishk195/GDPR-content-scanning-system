@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
+
+
+
 import Scan from "./pages/Scan";
 import Dashboard from "./pages/Dashboard";
 import Rules from "./pages/Rules";
@@ -24,6 +27,9 @@ export default function App() {
         <Link to="/" className="hover:underline">
           Home
         </Link>
+        
+
+      <div className="flex gap-6">
 
         <Link to="/scan" className="hover:underline">
           Scan
@@ -33,22 +39,26 @@ export default function App() {
           Dashboard
         </Link>
 
+
         <Link to="/rules" className="hover:underline">
           Rules
         </Link>
-
       </div>
+
+    </div>
 
     </nav>
 
 
     <Routes>
 
+
       <Route path="/" element={<Home />} />
 
       <Route path="/scan" element={<Scan />} />
 
       <Route path="/dashboard" element={<Dashboard />} />
+
 
       <Route path="/rules" element={<Rules />} />
 
@@ -58,6 +68,6 @@ export default function App() {
 
   </BrowserRouter>
 
-  );
+  )
 
 }

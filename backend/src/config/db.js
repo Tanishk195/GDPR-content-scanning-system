@@ -5,7 +5,7 @@ const pool = new Pool({
   host: "localhost",
   database: "gdpr_db",
   password: "",   
-  port: 5432
+
 });
 
 pool.connect((err, client, release) => {
