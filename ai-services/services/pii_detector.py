@@ -4,9 +4,14 @@ def detect_pii(text: str, rule_ids: list = None):
     """
     Scans text for PII based on a specific set of selected rule IDs.
     """
-    if not rule_ids:
-        return []
 
+    if rule_ids is None:
+        rule_ids = []
+
+    print("DEBUG → rule_ids received:", rule_ids)
+
+    if len(rule_ids) == 0:
+        return []
     # Pass rule_ids to the engine to filter SQL query
     violations = run_regex_detection(text, rule_ids)
 

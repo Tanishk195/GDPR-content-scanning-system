@@ -2,12 +2,15 @@ import re
 from config.db import fetch_enabled_rules
 
 
-def run_regex_detection(text: str):
+def run_regex_detection(text: str,rule_ids):
 
     violations = []
 
-    rules = fetch_enabled_rules()
-
+    all_rules = fetch_enabled_rules()
+    rules = [
+        r for r in all_rules
+        if r.get("id") is not None and int(r["id"]) in rule_ids
+    ]
     for rule in rules:
 
         rule_id = rule["id"]

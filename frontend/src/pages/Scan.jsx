@@ -24,7 +24,8 @@ export default function Scan() {
         const activeRules = res.data.filter(r => r.enabled);
         setAvailableRules(activeRules);
         // Default select all rules for convenience
-        setSelectedRuleIds(activeRules.map(r => r.id));
+        setSelectedRuleIds([]);
+        // setSelectedRuleIds(activeRules.map(r => r.id));
       } catch (err) {
         console.error("Failed to load rules", err);
       }
@@ -43,6 +44,7 @@ export default function Scan() {
 
   const executeScan = async () => {
     if (selectedRuleIds.length === 0) return alert("Select at least one rule");
+    console.log("Selected Rules Sent:", selectedRuleIds);
     
     setShowSidebar(false);
     setLoading(true);
